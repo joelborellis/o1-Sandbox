@@ -1,0 +1,86 @@
+planning_prompt =
+    f"<task>{user_task}</task>\n\n"
+    f"<instructions>"
+    f"As the Master Agent, you need to create aa VERY PRECISE plan to complete the task by untilizing the following agents:\n"
+    f"<agents>"
+    f"<agent name="search">Search Agent: returns text from a search query based on text prompts.</agent>\n"
+    f"</agents>\n"
+    f"Determine which agents tor use and the order in which to invoke them based on dependencies.\n"
+    f"Specify the plan in JSON format with the folling structure:\n"
+    f"<json_structure>"
+    f"{{\n"
+    f"  \"plan\": [\n"
+    f"    {{ \"agent\": \"agent_name", \"prompt\": \"prompt_for_agent\" }}, \n"
+    f"    ...\n"
+    f"   ]\n"
+    f"}}"
+    f"</json_structure>\n"
+    f"<rules>
+    f"- Remember, you can only use each agent once.  If you need to use an agent more than once, you must include it in the plan multiple times.\n"
+    f"- Image agents can make images, but not save them.  File agents can save, read and download files, but not make images etc.\n"
+    f"- Only include the agents necessary for the task.\n"
+    f"- Do not include any code blocks or additional text.\n"
+    f"- Be VERY PRECISE with your plan and agent prompts, an agent prompt should have one instruction, and only one.\n"
+    f"- DONT INCLUDE ```json or ```, MUST BE VALID JSON.\n"
+    f"</rules>"
+    f"</instructions>"
+    user_task = ""
+
+planning_prompt = (
+    f"<task>{user_task}</task>\n\n"
+    f"<instructions>"
+    f"As the Master Agent, you need to create a VERY PRECISE plan to complete the task by utilizing the following agents:\n"
+    f"<agents>"
+    f"<agent name='image'>Image Generation Agent: Generates images based on text prompts.</agent>\n"
+    f"<agent name='code'>Code Generation Agent: Both can write code and execute code to accomplish programming tasks.</agent>\n"
+    f"<agent name='file'>File Management Agent: Reads from and writes to files in the current directory, and can download images.</agent>\n"
+    f"</agents>\n"
+    f"Determine which agents tor use and the order in which to invoke them based on dependencies.\n"
+    f"Specify the plan in JSON format with the folling structure:\n"
+    f"<json_structure>"
+    f"{{\n"
+    f"  \"plan\": [\n"
+    f"    {{ \"agent\": \"agent_name\", \"prompt\": \"prompt_for_agent\" }},\n"
+    f"    ...\n"
+    f"   ]\n"
+    f"}}"
+    f"</json_structure>"
+    f"<rules>"
+    f"- Remember, you can only use each agent once.  If you need to use an agent more than once, you must include it in the plan multiple times.\n"
+    f"- Image agents can make images, but not save them.  File agents can save, read and download files, but not make images etc.\n"
+    f"- Only include the agents necessary for the task.\n"
+    f"- Do not include any code blocks or additional text.\n"
+    f"- Be VERY PRECISE with your plan and agent prompts, an agent prompt should have one instruction, and only one.\n"
+    f"- DONT INCLUDE ```json or ```, MUST BE VALID JSON.\n"
+    f"</rules>"
+    f"</instructions>"
+)
+1.  Find the sm of the following numbers 2, 5, 2.
+
+2.  The total sum of the numbers should be divided by 3 to find the final number.
+
+3.  The final number is the number of rabbits that should be in the image.
+
+4.  The image should have the style of the painter of the most famous piece of art in the most famous museaum in France.
+
+5.  Then generate html code to display the image using the url.
+
+6.  Also add a nice thick css frame to the image, center it too.
+
+7.  Then store the code as rabbits.html in cwd.
+
+8.  We also need a second image, this image should be a picture of the stadium that the the college football team The Longhorns plays.
+
+9.  To find the number of people this stadium holds multiply the number of people on the Titanic by 40.
+
+10.  This image should be added to the same html code as the first image.
+
+11.  Store the updated code as rabbits.html in cwd
+
+12.  Then the customer wants to style the rabbits.html code to look like a retro pop art website with extremely good reliability using css.
+
+13.  Again store the code as rabbits.html in cwd.
+
+14.  Finally add some information to the rabbits.html code to fit and siaplay the images side by side in the center of the page, and add captions to the images.
+
+15.  Again store the code as rabbits.html in cwd.
